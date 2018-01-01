@@ -10,6 +10,7 @@ export class ItemComponent {
 
   producto:any = undefined;
   fecha = new Date();
+  cod = undefined;
 
   constructor( private route:ActivatedRoute,
                private _ps:ProductosService) {
@@ -20,6 +21,7 @@ export class ItemComponent {
 
             _ps.cargar_producto(parametros['id'])
                .subscribe( res =>{
+                   this.cod = parametros['id'];
                    this.producto = res.json();
                    console.log(this.producto);
                })
