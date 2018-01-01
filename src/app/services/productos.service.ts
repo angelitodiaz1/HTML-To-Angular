@@ -11,6 +11,10 @@ export class ProductosService {
     this.cargar_productos();
   }
 
+  public cargar_producto( cod:string ){
+    return this.http.get(`https://webpage-57d88.firebaseio.com/productos/${cod}.json`)
+  }
+
   public cargar_productos(){
     //if (this.productos.length == 0){
     //}
