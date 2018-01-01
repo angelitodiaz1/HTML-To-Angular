@@ -33,8 +33,10 @@ import { ItemComponent } from './components/item/item.component';
     BrowserModule,
     app_routing
   ],
-  providers: [InformacionService,
-              ProductosService],
+  providers: [
+              InformacionService,
+              ProductosService
+             ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
