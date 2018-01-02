@@ -15,12 +15,33 @@ export class ProductosService {
 
   public buscar_producto( termino:string){
 
-    console.log('Buscando...');
-    console.log(this.productos.length);
+    // console.log('Buscando...');
+    // console.log(this.productos.length);
+
+    if (this.productos.length === 0){
+        this.cargar_productos().then(()=>{
+          // termino la carga de productos
+          this.filtrar_productos(termino);
+        });
+    }else{
+      this.filtrar_productos(termino);
+    }
+  }
+
+  private filtrar_productos(termino:string){
+
+    this.productos_filtrados = [];
+
+    termino = termino.toLowerCase();
+
     this.productos.forEach(
       prod => {
-        console.log(prod);
-    })
+        if(prod.categoria.indexOf(termino) >= 0 || prod.titulo.toLowerCase().indexOf(termino) >= 0){
+          this.productos_filtrados.push(prod);
+          // console.log(prod);
+        }
+        //console.log(prod);
+      })
   }
 
   public cargar_producto( cod:string ){
@@ -33,16 +54,23 @@ export class ProductosService {
 
     this.cargando = true;
 
-    this.http.get('https://webpage-57d88.firebaseio.com/productos_idx.json')
-      .subscribe( res => {
-        //console.log(res.json());
+    let promesa = new Promise((resolve, reject)=>{
+          this.http.get('https://webpage-57d88.firebaseio.com/productos_idx.json')
+          .subscribe( res => {
+            //console.log(res.json());
 
-        setTimeout( ()=>{
-          this.cargando = false;
-          this.productos = res.json();
-        },1500);
+            setTimeout( ()=>{
+              this.cargando = false;
+              this.productos = res.json();
+              resolve();
+            },1500);
+          });
 
-      });
+    });
+
+    return promesa;
+
+
   }
 
 }

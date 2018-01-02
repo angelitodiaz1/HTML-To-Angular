@@ -12,6 +12,7 @@ export class SearchComponent  {
 
   constructor(private route:ActivatedRoute,
               private _ps:ProductosService) {
+
       this.route.params.subscribe(
           parametros =>{
             this.termino = parametros['termino'];
