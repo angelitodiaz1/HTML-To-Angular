@@ -7,6 +7,7 @@ import { ProductosService } from '../../services/productos.service';
 })
 export class PortafolioComponent {
 
+  cargando:boolean = true;
   constructor(public _ps:ProductosService){
 
   }
