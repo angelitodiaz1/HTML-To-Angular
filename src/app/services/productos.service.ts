@@ -49,8 +49,6 @@ export class ProductosService {
   }
 
   public cargar_productos(){
-    //if (this.productos.length == 0){
-    //}
 
     this.cargando = true;
 
