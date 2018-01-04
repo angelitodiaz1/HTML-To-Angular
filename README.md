@@ -1,3 +1,12 @@
+
+#ARCHIVO GENERADO AUTOMATICAMENTE POR ANGULAR CLI
+
+Pagina de Prueba https://angelitodiaz1.github.io/HTML-To-Angular/#/
+
+Este ejercicio fue seguido paso a paso para obtener el mismo resultado planteado por el instructor en su Clase del Curso de la plataforma UDEMY --> Angular: Convierte cualquier template HTML en una WebAPP.
+
+##############
+
 # Portafolio
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.3.
